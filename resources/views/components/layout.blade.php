@@ -9,7 +9,7 @@
         @vite('resources/css/app.css')
     </head>
     <body class="bg-gray-100 p-12">
-        <div class="bg-gray-100 container mx-auto max-w-2xl">
+        <div class="bg-gray-100 container mx-auto max-w-2xl text-slate-600">
             <h1 class="text-7xl text-slate-700 text-center font-semibold mb-4">Tic Tac Toe</h1>
             {{ $slot }}
         </div>
