@@ -4,6 +4,9 @@
     </x-slot>
 
     <div class="space-y-4 text-center mb-8">
+        @if(session()->has('error'))
+            <div class="bg-red-500 w-full text-white py-1">Oops! {{ session('error') }}</div>
+        @endif
         <h2 class="text-2xl text-emerald-600 font-bold">Welcome to Tic Tac Toe!</h2>
         <p class="text-md">
             Tic Tac Toe is a classic two-player game played on a 3x3 grid.
@@ -20,7 +23,7 @@
         <p>
             Otherwise, please leave the game code field blank and click <span class="font-bold">Start Game</span>.
         </p>
-        <form method="POST" action="/game/create">
+        <form method="POST" action="/game/start">
             @csrf
             <div class="grid grid-cols-4 items-center">
                 <label class="col-span-1 p-2 font-bold text-emerald-600 text-right" for="game">
