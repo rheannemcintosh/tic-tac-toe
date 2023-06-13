@@ -19,17 +19,19 @@
         </div>
     @endif
 
-<div class="flex items-center justify-center">
-    <div class="bg-gray-300 grid grid-cols-3 gap-8 p-8 w-96 rounded-xl">
-        @for ($i = 0; $i <= 2; $i++)
-            @for ($j = 0; $j <= 2; $j++)
-                <button {{ $board[$i][$j] != '' ? 'disabled' : '' }} wire:click="playToken({{$i}},{{$j}})" class="bg-gray-200 h-24 w-24 shadow-xl rounded-xl border border-gray-300">
-                    <div class="flex items-center justify-center h-full text-5xl font-black text-gray-500">
-                        {{ $board[$i][$j] }}
-                    </div>
-                </button>
+    <div class="flex items-center justify-center">
+        <div class="bg-gray-300 grid grid-cols-3 gap-8 p-8 w-96 rounded-xl">
+            @for ($i = 0; $i <= 2; $i++)
+                @for ($j = 0; $j <= 2; $j++)
+                    <button {{ $board[$i][$j] != '' ? 'disabled' : '' }} wire:click="playToken({{$i}},{{$j}})" class="bg-gray-200 h-24 w-24 shadow-xl rounded-xl border border-gray-300">
+                        <div class="flex items-center justify-center h-full text-5xl font-black text-gray-500">
+                            {{ $board[$i][$j] }}
+                        </div>
+                    </button>
+                @endfor
             @endfor
-        @endfor
+        </div>
+
     </div>
 
     <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
@@ -38,6 +40,16 @@
         var pusher = new Pusher('{{ env("PUSHER_APP_KEY") }}', {
             cluster: '{{ env("PUSHER_APP_CLUSTER") }}',
             encrypted: true
+        });
+
+        var channel = pusher.subscribe('tic-tac-toe');
+        channel.bind('play-token', function(data) {
+            Livewire.emit('updateBoard', data.board);
+            Livewire.emit('updateCurrentToken', data.currentToken);
+            Livewire.emit('updateCurrentPlayer', data.currentPlayer);
+            Livewire.emit('updateDraw', data.draw);
+            Livewire.emit('updateWinner', data.winner);
+            Livewire.emit('updateCount', data.count);
         });
     </script>
 </div>

@@ -58,6 +58,21 @@ class TicTacToe extends Component
      * @var Pusher
      */
     protected $pusher;
+
+    /**
+     * List of listeners for real-time updates
+     *
+     * @var string[]
+     */
+    protected $listeners = [
+        'updateBoard',
+        'updateCurrentToken',
+        'updateCurrentPlayer',
+        'updateWinner',
+        'updateDraw',
+        'updateCount'
+    ];
+
     /**
      * Create a pusher instance
      */
@@ -110,6 +125,20 @@ class TicTacToe extends Component
             $this->currentToken = $this->currentToken == 'X' ? 'O' : 'X';
         }
 
+        // Use pusher to trigger the relevant events
+        $this->pusher->trigger(
+            'tic-tac-toe',
+            'play-token',
+            [
+                'board' => $this->board,
+                'currentToken' => $this->currentToken,
+                'currentPlayer' => $this->currentPlayer,
+                'winner' => $this->winner,
+                'draw' => $this->draw,
+                'count' => $this->count
+            ]
+        );
+//        $this->emit('updateMessage');
     }
 
     /**
@@ -191,5 +220,59 @@ class TicTacToe extends Component
     public function render()
     {
         return view('livewire.tic-tac-toe');
+    }
+
+    /**
+     * Update the board in real-time
+     *
+     * @param $board
+     */
+    public function updateBoard($board){
+        $this->board = $board;
+    }
+
+    /**
+     * Update the current token in real-time
+     *
+     * @param $currentToken
+     */
+    public function updateCurrentToken($currentToken){
+        $this->currentToken = $currentToken;
+    }
+
+    /**
+     * Update the current player in real-time
+     *
+     * @param $currentPlayer
+     */
+    public function updateCurrentPlayer($currentPlayer){
+        $this->currentPlayer = $currentPlayer;
+    }
+
+    /**
+     * Update the draw status in real-time
+     *
+     * @param $draw
+     */
+    public function updateDraw($draw){
+        $this->draw = $draw;
+    }
+
+    /**
+     * Update the winner status in real-time
+     *
+     * @param $winner
+     */
+    public function updateWinner($winner){
+        $this->winner = $winner;
+    }
+
+    /**
+     * Update the count in real-time
+     *
+     * @param $count
+     */
+    public function updateCount($count){
+        $this->count = $count;
     }
 }
