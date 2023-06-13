@@ -7,5 +7,6 @@
         <p class="text-md">
             Please send the above code to your friend to start the game!
         </p>
+        <livewire:tic-tac-toe />
     </div>
 </x-layout>
