@@ -32,4 +32,12 @@
         @endfor
     </div>
 
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+    <script>
+        var pusher = new Pusher('{{ env("PUSHER_APP_KEY") }}', {
+            cluster: '{{ env("PUSHER_APP_CLUSTER") }}',
+            encrypted: true
+        });
+    </script>
 </div>

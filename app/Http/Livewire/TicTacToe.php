@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Pusher\Pusher;
 
 class TicTacToe extends Component
 {
@@ -50,6 +51,36 @@ class TicTacToe extends Component
      * @var int
      */
     public $count = 0;
+
+    /**
+     * Pusher connection for real-time updates
+     *
+     * @var Pusher
+     */
+    protected $pusher;
+    /**
+     * Create a pusher instance
+     */
+    public function hydrate()
+    {
+        $this->pusher = new Pusher(
+            env('PUSHER_APP_KEY'),
+            env('PUSHER_APP_SECRET'),
+            env('PUSHER_APP_ID'),
+            [
+                'cluster' => env('PUSHER_APP_CLUSTER'),
+                'useTLS' => true,
+            ]
+        );
+    }
+
+    /**
+     * Initialise the livewire component
+     */
+    public function mount()
+    {
+        $this->hydrate();
+    }
 
     /**
      * Play a token on the board
