@@ -5,7 +5,7 @@ Tic Tac Toe is a classic game which is played on a 3x3 grid by two players. The 
 This version of Tic Tac Toe was built using Laravel as the foundation, integrating MySQL for the database, and employing Tailwind CSS for the styling of the interface. The game itself incorporates Livewire and Pusher, enabling real-time gameplay for an immersive experience.
 
 ## Where can I play?
-You can enjoy this version of Tic Tac Toe here: 
+You can enjoy this version of Tic Tac Toe here: 167.99.199.214
 
 ## How is this hosted?
 Laravel Forge was used to ensure a seamless launch.
