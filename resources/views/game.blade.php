@@ -9,4 +9,10 @@
         </p>
         <livewire:tic-tac-toe />
     </div>
+
+    <div class="flex justify-center items-center">
+        <a href="/">
+            <button class="mt-4 bg-red-600 px-8 py-4 text-2xl text-white rounded-lg">End Game</button>
+        </a>
+    </div>
 </x-layout>
