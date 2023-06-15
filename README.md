@@ -1,66 +1,38 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Tic Tac Toe 🎲
+Tic Tac Toe is a classic game which is played on a 3x3 grid by two players. The objective of the game is to be the first player to achieve three of their symbols (X or O) in a row, whether horizontally, vertically or diagonally.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## How was this built?
+This version of Tic Tac Toe was built using Laravel as the foundation, integrating MySQL for the database, and employing Tailwind CSS for the styling of the interface. The game itself incorporates Livewire and Pusher, enabling real-time gameplay for an immersive experience.
 
-## About Laravel
+## Where can I play?
+You can enjoy this version of Tic Tac Toe here: 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## How is this hosted?
+Laravel Forge was used to ensure a seamless launch.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## What are the limitations?
+As this application was developed quickly, there are known limitations that offer potential for enhancement, including:
+- [ ] Optimising for mobile devices to ensure a responsive experience across all platforms.
+- [ ] Implementing visual indicators to notify users when a player joins or leaves the game.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## What are the possible future improvements?
+By using Laravel as the framework, it allows for a scalable solution to easily be made. In the future, various improvements could be implemented, including:
+- [ ] Introducing a comprehensive scoring system to track each player's performance.
+- [ ] Organising tournaments with dedicated scoreboards to allow friendly competition.
+- [ ] Creating user profiles, to allow players to maintain high scores, and to connect with friends.
 
-## Learning Laravel
+## How do I run this locally?
+Assuming you have PHP, MySQL, Composer and NPM installed, setting up the game locally should be easy. Just follow these steps:
+1. Clone this repository from GitHub.
+2. Create a new schema in MySQL.
+3. Run `composer install`
+4. Run `npm install`
+5. Create a Pusher account here, and create a new channel by following the instructions on the site.
+6. Copy the `.env.example` into a new file called `.env`, and fill in the relevant fields: `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`, `PUSHER_APP_ID`, `PUSHER_APP_KEY`, `PUSHER_APP_SECRET`, `PUSHER_APP_CLUSTER`.
+6. Run `php artisan migrate`
+7. Run `npm run dev`
+8. Run `php artisan serve`
+9. Congratulations! Your app should now be up and running locally. 🎉
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## How do I run the unit tests?
+Running tests should be easy, simply run `php artisan test`.
